@@ -48,7 +48,6 @@ struct bd65b60_chip {
 	struct bd65b60_platform_data *pdata;
 	struct regmap *regmap;
 	struct pwm_device *pwmd;
-	struct pwm_args pargs;
 	struct device *dev;
 	struct workqueue_struct *ledwq;
 	struct work_struct ledwork;
@@ -289,7 +288,7 @@ static int bd65b60_probe(struct i2c_client *client,
 			dev_err(&client->dev, "fail : get pwm device");
 			return PTR_ERR(pchip->pwmd);
 		}
-		pchip->pwmd->pargs.period = pdata->pwm_period;
+		pchip->pwmd->args.period = pdata->pwm_period;
 	}
 
 	/* led classdev register */
