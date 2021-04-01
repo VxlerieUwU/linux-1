@@ -136,10 +136,10 @@ static void bd65b60_brightness_set(struct work_struct *work)
 	static int old_level = -1;
 
 	if (level != old_level && old_level == 0) {
-		dev_err(pchip->dev, "backlight on");
+		dev_info(pchip->dev, "backlight on");
 		bd65b60_write(pchip, REG_PON, 0x01);
 	} else if (level == 0 && old_level != 0)
-		dev_err(pchip->dev, "backlight off");
+		dev_info(pchip->dev, "backlight off");
 	old_level = level;
 
 	if (pchip->pdata->pwm_period != 0)
@@ -289,7 +289,7 @@ static int bd65b60_probe(struct i2c_client *client,
 			dev_err(&client->dev, "fail : get pwm device");
 			return PTR_ERR(pchip->pwmd);
 		}
-		pchip->pwmd->period = pdata->pwm_period;
+		pchip->pwmd->pargs.period = pdata->pwm_period;
 	}
 
 	/* led classdev register */
