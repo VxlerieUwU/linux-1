@@ -279,6 +279,17 @@ config LEDS_S3C24XX
 	  This option enables support for LEDs connected to GPIO lines
 	  on Samsung S3C24XX series CPUs, such as the S3C2410 and S3C2440.
 
+config LEDS_BD65B60
+	tristate "LED Driver for BD65B60"
+	depends on LEDS_CLASS
+	depends on I2C
+	help
+	  If you have a LCD backlight connected to the ROHM BD65B60,
+	  say Y here to enable this driver.
+
+	  To compile this driver as a module, choose M here: the module will
+	  be called leds-bd65b60.
+
 config LEDS_NET48XX
 	tristate "LED Support for Soekris net48xx series Error LED"
 	depends on LEDS_CLASS
@@ -942,8 +953,5 @@ source "drivers/leds/flash/Kconfig"
 
 comment "LED Triggers"
 source "drivers/leds/trigger/Kconfig"
-
-comment "LED Blink"
-source "drivers/leds/blink/Kconfig"
 
 endif # NEW_LEDS

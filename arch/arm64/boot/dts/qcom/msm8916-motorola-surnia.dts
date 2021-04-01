@@ -75,6 +75,17 @@
 
 &blsp_i2c1 {
 	status = "okay";
+	
+	bd65b60@64 {
+		compatible = "rohm,bd65b60";
+		reg = <0x64>;
+		linux,name = "lcd-backlight";
+		rohm,no-reset;
+		rohm,led1-used;
+		rohm,pwm-on;
+		pinctrl-names = "default";
+		pinctrl-0 = <&backlight_reset_default>;
+	};
 };
 
 &blsp_i2c2 {
@@ -358,6 +369,14 @@
 };
 
 &msmgpio {
+	backlight_reset_default: backlight-reset-default {
+		pins = "gpio36";
+		function = "gpio";
+		
+		drive-strength = <2>;
+		bias-pull-down;
+	};
+
 	battery_alert_default: battery-alert-default {
 		pins = "gpio12";
 		function = "gpio";

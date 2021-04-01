@@ -82,6 +82,7 @@ obj-$(CONFIG_LEDS_PWM)			+= leds-pwm.o
 obj-$(CONFIG_LEDS_QCOM_LPG)		+= leds-qcom-lpg.o
 obj-$(CONFIG_LEDS_REGULATOR)		+= leds-regulator.o
 obj-$(CONFIG_LEDS_S3C24XX)		+= leds-s3c24xx.o
+obj-$(CONFIG_LEDS_BD65B60)		+= leds-bd65b60.o
 obj-$(CONFIG_LEDS_SC27XX_BLTC)		+= leds-sc27xx-bltc.o
 obj-$(CONFIG_LEDS_SGM3140)		+= leds-sgm3140.o
 obj-$(CONFIG_LEDS_SUNFIRE)		+= leds-sunfire.o
@@ -109,6 +110,3 @@ obj-$(CONFIG_LEDS_CLASS_FLASH)		+= flash/
 
 # LED Triggers
 obj-$(CONFIG_LEDS_TRIGGERS)		+= trigger/
-
-# LED Blink
-obj-$(CONFIG_LEDS_BLINK)                += blink/
